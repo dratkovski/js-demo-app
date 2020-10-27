@@ -9,12 +9,8 @@ variables:
 
 steps:
 - task: Docker@2
-  displayName: Push image
+  displayName: Build an image
   inputs:
-    containerRegistry: |
-      $(dockerHub)
     repository: $(imageName)
-    command: push
-    tags: |
-      test1
-      test2
+    command: build
+    Dockerfile: app/Dockerfile
